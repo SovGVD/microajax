@@ -12,21 +12,22 @@ simply include it to your HTML page in head
 ```
 
 then call like this:
-for GET
-```js
-ajax.send('script.php?foo=bar&foo2=bar','GET',null,null,true,result_call_function);
 
-function result_function (data) {
+###for GET
+```js
+ajax.send('script.php?foo=bar&foo2=bar','GET',null,null,true,result_callback_function);
+
+function result_callback_function (data) {
   alert(data);
 }
 ```
 
-for POST
+###for POST
 ```js
 ajax.send('script.php','POST','foo=bar&search='+encodeURIComponent(someText),null,true,result_callback_function);
 ```
 
-with COOKIE
+###with COOKIE
 ```js
 var cookies="cookie1=foo; cookie2=bar";
 ajax.send('script.php','POST','foo=bar&search='+encodeURIComponent(someText),cookies,true,result_callback_function);
