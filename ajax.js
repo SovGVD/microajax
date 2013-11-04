@@ -2,6 +2,19 @@ var ajax = {
     init: function(){
         return new XMLHttpRequest();
         },
+    arrayToString: function (ar,prefix) {
+        var out="";
+        for (var i in ar) {
+            if (ar[i] instanceof Array) {
+                ar[i]=this.arrayToString(ar[i], prefix+"["+i+"]");
+            } else {
+                ar[i]="&"+prefix+"["+i+"]="+encodeURIComponent(ar[i]);
+            }
+        }
+        for (var i in ar) { out+=ar[i]; }
+        return out;
+        },
+
     send: function(url,method,args,cookies,async,_callback){
         var q=ajax.init();
         q.open(method,url,async);
