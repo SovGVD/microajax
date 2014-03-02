@@ -29,6 +29,15 @@ var ajax = {
 		}
 	    return out;
 	    },
+    dataToForm: function (id,data) {
+	    for (var i in data) {
+		var obj=document.getElementById(id+i);
+		if (obj) {
+		    obj.value=data[i];
+		}
+	    }
+	},
+
 
     send: function(url,method,args,cookies,async,_callback){
         var q=ajax.init();
