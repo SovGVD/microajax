@@ -14,6 +14,21 @@ var ajax = {
         for (var i in ar) { out+=ar[i]; }
         return out;
         },
+    formToData: function (id) {
+	    var id_len=id.length;
+	    var out=new Array();
+	    var tmp=[document.getElementsByTagName('input'),document.getElementsByTagName('select'),document.getElementsByTagName('textarea')];
+		for (var t in tmp) {
+		    for (var i in tmp[t]) {
+			    if (tmp[t][i].id) {
+				    if ((tmp[t][i].id).substring(0,id_len)==id) {
+				        out[(tmp[t][i].id).substring(id_len)]=tmp[t][i].value || tmp[t][i].innerHTML;
+				    }
+			    }
+		    }
+		}
+	    return out;
+	    },
 
     send: function(url,method,args,cookies,async,_callback){
         var q=ajax.init();
