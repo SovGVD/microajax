@@ -1,6 +1,10 @@
 var ajax = {
     init: function(){
-        return new XMLHttpRequest();
+        if (window.ActiveXObject)
+		return new ActiveXObject('Microsoft.XMLHTTP');
+	else if (window.XMLHttpRequest)
+		return new XMLHttpRequest();
+	return false;
         },
     arrayToString: function (ar,prefix) {
         var out="";
