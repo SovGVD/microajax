@@ -41,7 +41,7 @@ only for input, select and textarea (.value or .innerHTML)
 ```
 JS:
 ```js
-var data=ajax.formToData("someID_");
+var data=ajax.formToData("someId_");
 ```
 data will be an array like
 ```js
@@ -56,7 +56,7 @@ JS:
 ```js
 data['title']="hello";
 data['about']="this is very simple and untested";
-ajax.dataToFrom("someID_",data);
+ajax.dataToFrom("someId_",data);
 ```
 form will be like
 ```html
